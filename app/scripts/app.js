@@ -1,5 +1,9 @@
 var blocJames = angular.module('blocJams', ['ui.router']);
 
+blocJames.controller('landingcontroller',function($scope){
+  $scope.sometext = "Turn the music up";
+});
+
 blocJames.config(function($stateProvider, $locationProvider) {
 
      $locationProvider.html5Mode({
@@ -8,21 +12,21 @@ blocJames.config(function($stateProvider, $locationProvider) {
      });
     
      $stateProvider.state('landing', {
-         url: '/landing',
-         controller: 'landing.controller',
-         templateUrl: '/templates/landing.html'
+         url: 'landing',
+         controller: 'landingcontroller',
+         templateUrl: 'C:/Users/excalibur/bloc/bloc-jams-angular/app/templates/landing.html'
      });
      
      $stateProvider.state('album', {
-         url: '/album',
+         url: 'album',
          controller: 'Album.controller',
-         templateUrl: '/templates/album.html'
+         templateUrl: 'C:/Users/excalibur/bloc/bloc-jams-angular/app/templates/album.html'
      });
      
      $stateProvider.state('collection', {
-         url: '/collection',
+         url: 'collection',
          controller: 'collection.controller',
-         templateUrl: '/templates/collection.html'
+         templateUrl: 'C:/Users/excalibur/bloc/bloc-jams-angular/app/templates/collection.html'
      });
 
  });
