@@ -22,19 +22,19 @@ blocJames.config(function($stateProvider, $locationProvider) {
      $stateProvider.state('landing', {
          url: 'landing',
          controller: 'landing.controller',
-         templateUrl: '../templates/landing.html'
+         templateUrl: '/templates/landing.html'
      });
      
      $stateProvider.state('album', {
          url: 'album',
          controller: 'album.controller',
-         templateUrl: '../templates/album.html'
+         templateUrl: '/templates/album.html'
      });
      
      $stateProvider.state('collection', {
          url: 'collection',
          controller: 'collection.controller',
-         templateUrl: '../templates/collection.html'
+         templateUrl: '/templates/collection.html'
      });
 
  });
