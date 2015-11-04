@@ -1,9 +1,17 @@
 var blocJames = angular.module('blocJams', ['ui.router']);
 
-blocJames.controller('landingcontroller',function($scope){
+blocJames.controller('landing.controller',function($scope){
   $scope.sometext = "Turn the music up";
 });
 
+blocJames.controller('collection.controller',function($scope){
+    $scope.albums =albumPicasso;
+    
+});
+blocJames.controller('album.controller',function($scope){
+    $scope.albums =albumPicasso;
+    
+});
 blocJames.config(function($stateProvider, $locationProvider) {
 
      $locationProvider.html5Mode({
@@ -13,20 +21,20 @@ blocJames.config(function($stateProvider, $locationProvider) {
     
      $stateProvider.state('landing', {
          url: 'landing',
-         controller: 'landingcontroller',
-         templateUrl: 'C:/Users/excalibur/bloc/bloc-jams-angular/app/templates/landing.html'
+         controller: 'landing.controller',
+         templateUrl: '../templates/landing.html'
      });
      
      $stateProvider.state('album', {
          url: 'album',
-         controller: 'Album.controller',
-         templateUrl: 'C:/Users/excalibur/bloc/bloc-jams-angular/app/templates/album.html'
+         controller: 'album.controller',
+         templateUrl: '../templates/album.html'
      });
      
      $stateProvider.state('collection', {
          url: 'collection',
          controller: 'collection.controller',
-         templateUrl: 'C:/Users/excalibur/bloc/bloc-jams-angular/app/templates/collection.html'
+         templateUrl: '../templates/collection.html'
      });
 
  });

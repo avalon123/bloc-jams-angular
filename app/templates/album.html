@@ -1,7 +1,7 @@
 <main class="album-view container narrow">
   <section class="clearfix">
     <div class="column half">
-      <img src="assets/images/album_covers/01.png" class="album-cover-art">
+      <img src="../assets/images/album_covers/01.png" class="album-cover-art">
     </div>
     <div class="album-view-details column half">
       <h2 class="album-view-title">The Colors</h2>
@@ -9,7 +9,13 @@
       <h5 class="album-view-release-info">1909 Spanish Records</h5>
     </div>
   </section>
-<table class="album-view-song-list"></table>
+<table class="album-view-song-list">
+    <tr ng-repeat ="song in albums.songs">
+       <td>{{$index+1}}.</td>
+       <td>{{song.name}}</td>
+       <td>{{song.length}} min</td>    
+    </tr>
+</table>
 </main>
 <section class="player-bar">
   <div class="container">
@@ -46,7 +52,3 @@
     </div>
   </div>
 </section>
-<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.1.10/buzz.min.js"></script>
-<script src="scripts/fixtures.js"></script>
-<script src="scripts/album.js"></script>
