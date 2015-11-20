@@ -1,5 +1,5 @@
 <section class="album-covers container clearfix" ng-controller = "collection.controller" >
-    <div ng-repeat = "i in [1,2,3,4,5,6]">
+    <div>
        <p>
          <a class = "album-covers">
              <img src={{albums.albumArtUrl}}>
@@ -9,7 +9,7 @@
         <br/>
          <a ui-sref="album"> {{albums.artist}} </a>
          <br/>
-         X songs
+         {{albums.songs.length}} songs
          <br/>
        </p>
     </div>

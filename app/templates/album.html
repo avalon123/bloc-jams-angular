@@ -4,51 +4,52 @@
       <img src="../assets/album_covers/01.png" class="album-cover-art">
     </div>
     <div class="album-view-details column half">
-      <h2 class="album-view-title">The Colors</h2>
-      <h3 class="album-view-artist">Pablo Picasso</h3>
-      <h5 class="album-view-release-info">1909 Spanish Records</h5>
+      <h2 class="album-view-title">{{albums.name}}</h2>
+      <h3 class="album-view-artist">{{albums.artist}}</h3>
+      <h5 class="album-view-release-info">{{albums.label}}  {{albums.year}}</h5>
     </div>
   </section>
-<table class="album-view-song-list">
-    <tr ng-repeat ="song in albums.songs">
-       <td>{{$index+1}}.</td>
+<table class="album-view-song-list" >
+    <tr ng-repeat ="song in albums.songs" ng-init="player.playing=false" ng-click="getSong(song)">
+       <td>{{$index+1}}</td>
        <td>{{song.name}}</td>
-       <td>{{song.length}} min</td>    
+       <td>{{song.length|Time}} min</td>    
     </tr>
 </table>
 </main>
 <section class="player-bar">
   <div class="container">
-    <div class="control-group main-controls">
-    <a class="previous">
+    <div class="control-group main-controls" ng-init="player.playing=false">
+    <a class="previous" ng-click="player.previousSong()">
       <span class="ion-skip-backward"></span>
     </a>
-    <a class="play-pause">
+    <a class="play-pause" ng-show="!player.playing" ng-click="player.play()">
       <span class="ion-play"></span>
     </a>
-    <a class="next">
+    <a class="play-pause" ng-show="player.playing" ng-click="player.stop()">
+    <span class="ion-pause"></span>
+    </a>
+    <a class="next" ng-click="player.nextSong()">
       <span class="ion-skip-forward"></span>
     </a>
     </div>
-    <div class="control-group currently-playing">
-      <h2 class="song-name"></h2>
+    <div class="control-group currently-playing" ng-init="player.isplaying=0">
+      <h2 class="song-name">{{songName}}</h2>
       <h2 class="artist-song-mobile"></h2>
-      <h3 class="artist-name"></h3>
+      <h3 class="artist-name">{{albums.artist}}</h3>
       <div class="seek-control">
-        <div class="seek-bar">
-          <div class="fill"></div>
-          <div class="thumb"></div>
-        </div>
-        <div class="current-time">2:30</div>
-        <div class="total-time">4:45</div>
+        <slider player='player' audio='audio' 
+                class="seek-bar">
+        </slider>
+        <div class="total-time">{{songTime}}</div>
       </div>
     </div>
     <div class="control-group volume">
       <span class="ion-volume-high icon"></span>
-      <div class="seek-bar">
+      <volume class="seek-bar" player='player' audio='audio'>
       <div class="fill"></div>
       <div class="thumb"></div>
-      </div>
+      </volume>
     </div>
   </div>
 </section>
